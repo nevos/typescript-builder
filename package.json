@@ -12,8 +12,22 @@
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/*",
     "tsc": "tsc"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nevos/typescript-builder"
+  },
+  "homepage": "https://github.com/nevos/typescript-builder",
+  "keywords": [
+    "builder",
+    "pattern",
+    "json-switch",
+    "typescript",
+    "node",
+    "creational",
+    "object-oriented"
+  ],
+  "author": "Nevos nevonat@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^10.0.6",
     "typescript": "^2.8.3",
