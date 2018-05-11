@@ -1,0 +1,26 @@
+{
+  "name": "typescript-builder",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=8"
+  },
+  "description": "typescript builder pattern and example, using literal class creation method",
+  "main": "lib/index",
+  "types": "lib/index",
+  "scripts": {
+    "live": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/*",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.0.6",
+    "typescript": "^2.8.3",
+    "nodemon": "^1.17.4",
+    "ts-node": "^6.0.3"
+  },
+  "dependencies": {
+    "typestyle": "^1.7.2"
+  }
+}
