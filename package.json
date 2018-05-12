@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=8"
   },
-  "description": "typescript builder pattern and example, using literal class creation method",
+  "description": "typescript builder design pattern and example, using literal class creation method",
   "main": "lib/index",
   "types": "lib/index",
   "scripts": {
@@ -20,8 +20,10 @@
   "keywords": [
     "builder",
     "pattern",
+    "design pattern",
     "json-switch",
     "typescript",
+    "javascript",
     "node",
     "creational",
     "object-oriented"
