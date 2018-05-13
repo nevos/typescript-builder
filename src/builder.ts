@@ -1,4 +1,4 @@
-// builder pattern for usage with class literals
+// Builder pattern for usage with class literals
 export interface IBuilder {
     creator<T>(type: { new(): T ;} ): T ;
 }
@@ -11,7 +11,7 @@ export class Builder<T> implements IBuilder {
         return this.instance ;
     }
 
-    constructor(type: { new (): T; }) {
+    constructor(private type: {type: new() => T; }) {
         this.instance = Object.create(type);
     }
 

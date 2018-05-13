@@ -1,4 +1,5 @@
-const { AnimalBuilder } = require('./lib/AnimalBuilder.js');
+/** example js usage */
+const { AnimalBuilder } = require('./lib/animalBuilder.js');
 const { proto } = require('./animals.js');
 const { Platypus } = require('./platypus.js');
 let someAnimals = ['Dog', 'Cat', 'Platypus']; // these dont have to the class names.

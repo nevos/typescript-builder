@@ -4,10 +4,11 @@ export interface IBuilder {
     }): T;
 }
 export declare class Builder<T> implements IBuilder {
+    private type;
     private instance;
     getInstance(): any;
     constructor(type: {
-        new (): T;
+        type: new () => T;
     });
     creator<T>(type: {
         new (): T;
