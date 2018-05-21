@@ -15,7 +15,7 @@ Typescript builder pattern and example, using literal class creation method.
 ## Installation
 
 ```
-yarn add builder-pattern
+yarn add typescript-builder
 ```
 
 ## Usage Example
