@@ -4,12 +4,12 @@ compile typescript:
 npm run tsc
 node index
 
-typescript based builder example, which allows to use literals to create new objects of types.  
+typescript based builder example.  
 
 
 # typescript-builder
 
-Typescript builder pattern and example, using literal class creation method.
+Typescript builder pattern and example.
 
 
 ## Installation
@@ -18,55 +18,85 @@ Typescript builder pattern and example, using literal class creation method.
 yarn add typescript-builder
 ```
 
-## Usage Example
+## TS Usage Example
 ```
-import { Builder } from 'typescript-builder';
+export class AnimalBuilder<A extends Animal> extends Builder<A> {
 
-class AnimalBuilder extends Builder {
-    setType(type: string): AnimalBuilder {
-        this.getInstance().type = (type || "animal");
+    constructor(type: any) {
+        super(type) ;
+    }
+
+    setType(type: string): AnimalBuilder<A> {
+        let inst = this.getInstance<A>() ;
+        inst.Type = (type || "animal");
         return this;
     }
 
-    setkingdom(kingdom: string): AnimalBuilder {
-        this.getInstance().kingdom = kingdom;
+    setkingdom(kingdom: string): AnimalBuilder<A> {
+        this.getInstance<A>().Kingdom = kingdom;
         return this;
     }
     
-    setSound(sound: string): AnimalBuilder {
-        this.getInstance().sound = sound;
+    setSound(sound: string): AnimalBuilder<A> {
+        this.getInstance<A>().Sound = sound;
         return this;
     }
 }
 
-abstract class Animal {
+
+export abstract class Animal {
     private type: string;
     private kingdom: string;
     private sound: string;
 
-    public set Type(type: string) { this.type = type };
-    public get Type() { return this.type; };
-    public set Sound(sound: string) { this.sound = sound };
-    public get Sound() { return this.sound; };
-    public set Kingdom(kingdom: string) { this.kingdom = kingdom };
-    public get Kingdom() { return this.kingdom; };
+    set Type(type: string) { this.type = type };
+    get Type() { return this.type; };
+    set Sound(sound: string) { this.sound = sound };
+    get Sound() { return this.sound; };
+    set Kingdom(kingdom: string) { this.kingdom = kingdom };
+    get Kingdom() { return this.kingdom; };
 
-    constructor(type: string, kingdom: string, sound: string) {
-        this.type = type;
-        this.kingdom = kingdom;
-        this.sound = sound;
+    constructor() {
+        this.type = "" ;
+        this.kingdom = "animal" ;
+        this.sound = "" ;
     }
 }
 
-class Dog extends Animal {
-    // what ever overrides dog has...
+export class Dog extends Animal {
+
+    public Bark() {
+        return this.Sound ; 
+    }
+
+    constructor() {
+        super() ;
+    }
 }
 
-const animalBuilder = new AnimalBuilder(Object.create(Dog.prototype));
-animalBuilder.setType("dog").setkingdom("pet").setSound("bark");
-let dog = animalBuilder.getInstance();
 
-console.log("dog", animalBuilder.getInstance());
+export class Cat extends Animal {
+
+    public Miau() {
+        return this.Sound ; 
+    }
+
+    constructor() {
+        super() ;
+        this.Kingdom = "pet" ;
+    }
+}
+
+const animalBuilder = new AnimalBuilder<Animal>(Dog);
+animalBuilder.setType("dog").setSound("bark");
+let dog = <Dog>animalBuilder.getInstance<Dog>();
+console.log("dog", dog, dog.Bark());
+
+const animalBuilder2 = new AnimalBuilder<Cat>(Cat);
+let cat = animalBuilder2.getInstance();
+animalBuilder2.setType("cat").setSound("miau");
+console.log("cat", cat, cat.Miau());
+
 ```
 ## License
 

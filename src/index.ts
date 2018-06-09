@@ -1,1 +1,2 @@
-export * from './builder';
+"use strict";
+export * from "./builder.js";
